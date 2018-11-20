@@ -490,9 +490,11 @@ public class Adminlogin_page extends javax.swing.JFrame {
 
         genderGrp.add(MaleDoc);
         MaleDoc.setText("Male");
+        MaleDoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         genderGrp.add(FemaleDoc);
         FemaleDoc.setText("Female");
+        FemaleDoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         docGmailLabel.setText("Gmail");
 
@@ -608,7 +610,7 @@ public class Adminlogin_page extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -786,7 +788,7 @@ public class Adminlogin_page extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Long.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

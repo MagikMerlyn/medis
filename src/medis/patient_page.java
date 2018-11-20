@@ -26,6 +26,7 @@ public class patient_page extends javax.swing.JFrame {
     public patient_page(String userId) {
         initComponents();
         patientID = userId;
+        check();
         buildProfile();
     }
 
@@ -72,10 +73,9 @@ public class patient_page extends javax.swing.JFrame {
         statusPanel = new javax.swing.JPanel();
         currentStatus = new javax.swing.JLabel();
         patActive = new javax.swing.JLabel();
-        nullPanel = new javax.swing.JPanel();
         tablePanel = new javax.swing.JPanel();
         tableScrollPane = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
+        patiTable = new javax.swing.JTable();
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -386,7 +386,7 @@ public class patient_page extends javax.swing.JFrame {
                 .addComponent(currentStatus)
                 .addGap(39, 39, 39)
                 .addComponent(patActive)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
         statusPanelLayout.setVerticalGroup(
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,38 +398,25 @@ public class patient_page extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        nullPanel.setBackground(new java.awt.Color(153, 153, 153));
-
-        javax.swing.GroupLayout nullPanelLayout = new javax.swing.GroupLayout(nullPanel);
-        nullPanel.setLayout(nullPanelLayout);
-        nullPanelLayout.setHorizontalGroup(
-            nullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 181, Short.MAX_VALUE)
-        );
-        nullPanelLayout.setVerticalGroup(
-            nullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 406, Short.MAX_VALUE)
-        );
-
         tablePanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
+        patiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Patient ID", "Name", "Ph no", "Disease", "Medicine", "Doc name", "med issued"
+                "Patient ID", "Name", "Phone No", "Disease", "Medicine", "Doc Name", "Med Issued"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        tableScrollPane.setViewportView(patTable);
+        tableScrollPane.setViewportView(patiTable);
 
         javax.swing.GroupLayout tablePanelLayout = new javax.swing.GroupLayout(tablePanel);
         tablePanel.setLayout(tablePanelLayout);
@@ -437,26 +424,23 @@ public class patient_page extends javax.swing.JFrame {
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pat_detailsLayout = new javax.swing.GroupLayout(pat_details);
         pat_details.setLayout(pat_detailsLayout);
         pat_detailsLayout.setHorizontalGroup(
             pat_detailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pat_detailsLayout.createSequentialGroup()
-                .addComponent(nullPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(statusPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tablePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pat_detailsLayout.setVerticalGroup(
             pat_detailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,9 +448,7 @@ public class patient_page extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(statusPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pat_detailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nullPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         detailsPatient.add(pat_details, "card3");
@@ -500,6 +482,26 @@ public class patient_page extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void check(){
+        try{
+            String password = null;
+            con = my_sql_connect.connectdb();
+            pst = con.prepareStatement("select patPswd from patient where patID=?");
+            pst.setString(1, patientID);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                password = rs.getString("patPswd");
+            }
+            if("password".equals(password)){
+                this.setVisible(false);
+                PasswordConfirmation pswdConfirm = new PasswordConfirmation("patient",patientID);
+                pswdConfirm.setVisible(true);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error : "+e);
+        }
+    }
+    
     private void buildProfile(){
         try{
             con = my_sql_connect.connectdb();
@@ -527,17 +529,18 @@ public class patient_page extends javax.swing.JFrame {
     
     private void patientDetails(){
         
-        DefaultTableModel model= (DefaultTableModel)patTable.getModel();
-        //tablemodel.removeRow(0);
+        DefaultTableModel model= (DefaultTableModel)patiTable.getModel();
+        //model.removeRow(0);
         try{
             con = my_sql_connect.connectdb();
             pst = con.prepareStatement("select * from patient where patID =?");
             pst.setString(1, patientID);
             rs = pst.executeQuery();
+            
             if(rs.next())
             {
 		model.addRow(new Object[]{rs.getString("patID"),rs.getString("patName"),rs.getLong("phoneNo"),
-                    rs.getString("disease"),rs.getString("medicine"),rs.getString("docName"),rs.getString("medIssued")});
+                    rs.getString("disease"),rs.getString("medicine"),rs.getString("doctName"),rs.getString("medIssued")});
             }
             rs.close();
             con.close();
@@ -551,14 +554,14 @@ public class patient_page extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void profile_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profile_click
-        patientDetails();
+        buildProfile();
         this.pat_details.setVisible(false);
         this.detailsPanel.setVisible(true);
         
     }//GEN-LAST:event_profile_click
 
     private void patient_deltailsclick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patient_deltailsclick
-        buildProfile();
+        patientDetails();
         this.pat_details.setVisible(true);
         this.detailsPanel.setVisible(false);
     }//GEN-LAST:event_patient_deltailsclick
@@ -627,12 +630,11 @@ public class patient_page extends javax.swing.JFrame {
     private javax.swing.JPanel midPanel;
     private javax.swing.JLabel name;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JPanel nullPanel;
     private javax.swing.JLabel patActive;
     private javax.swing.JLabel patEmail;
     private javax.swing.JLabel patName;
-    private javax.swing.JTable patTable;
     private javax.swing.JPanel pat_details;
+    private javax.swing.JTable patiTable;
     private javax.swing.JLabel patient;
     private javax.swing.JLabel personal;
     private javax.swing.JLabel profile;

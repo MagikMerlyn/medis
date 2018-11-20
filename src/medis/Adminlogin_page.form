@@ -914,6 +914,9 @@
                           <ComponentRef name="genderGrp"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Male"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Hand Cursor"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="FemaleDoc">
@@ -922,6 +925,9 @@
                           <ComponentRef name="genderGrp"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Female"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Hand Cursor"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="docGmailLabel">
@@ -998,7 +1004,7 @@
                                 <Column editable="true" title="Designation" type="java.lang.String"/>
                                 <Column editable="true" title="Gender" type="java.lang.String"/>
                                 <Column editable="true" title="Gmail" type="java.lang.String"/>
-                                <Column editable="true" title="Ph no" type="java.lang.Long"/>
+                                <Column editable="true" title="Ph no" type="java.lang.String"/>
                                 <Column editable="true" title="Status" type="java.lang.String"/>
                               </Table>
                             </Property>
@@ -1349,7 +1355,7 @@
                               <Table columnCount="3" rowCount="0">
                                 <Column editable="true" title="Pharm ID" type="java.lang.String"/>
                                 <Column editable="true" title="Pharmacist name" type="java.lang.String"/>
-                                <Column editable="true" title="Ph no" type="java.lang.Long"/>
+                                <Column editable="true" title="Ph no" type="java.lang.String"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -90,7 +90,7 @@ public class pharmacy_login extends javax.swing.JFrame {
         backPanel.add(pharmIDLabel);
         pharmIDLabel.setBounds(330, 110, 110, 30);
 
-        pharmacistId.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        pharmacistId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pharmacistId.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 0), 2, true));
         backPanel.add(pharmacistId);
         pharmacistId.setBounds(330, 140, 190, 40);
@@ -100,6 +100,7 @@ public class pharmacy_login extends javax.swing.JFrame {
         backPanel.add(passwordLabel);
         passwordLabel.setBounds(330, 210, 140, 30);
 
+        pharmacistPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pharmacistPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 0), 2, true));
         backPanel.add(pharmacistPassword);
         pharmacistPassword.setBounds(330, 240, 190, 40);
@@ -108,6 +109,7 @@ public class pharmacy_login extends javax.swing.JFrame {
         pharmacistLogin.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         pharmacistLogin.setText("Login");
         pharmacistLogin.setBorder(null);
+        pharmacistLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pharmacistLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pharmacistLoginActionPerformed(evt);
@@ -120,7 +122,7 @@ public class pharmacy_login extends javax.swing.JFrame {
         closeBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         closeBtn.setForeground(new java.awt.Color(255, 255, 255));
         closeBtn.setText("X");
-        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 close_button(evt);
@@ -174,11 +176,12 @@ public class pharmacy_login extends javax.swing.JFrame {
                         //JOptionPane.showMessageDialog(null,"WELCOME ");
                         pharmacy_page pharm = new pharmacy_page(pharmacist_id);
                         pharm.setVisible(true);
-                    }                     
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"INVALID USERNAME/PASSWORD","Access denied...",JOptionPane.ERROR_MESSAGE);   
+                    }
                 }                   
-                else {
-                     JOptionPane.showMessageDialog(null,"INVALID USERNAME/PASSWORD","Access denied...",JOptionPane.ERROR_MESSAGE);   
-                }
+                
                 pharmacistPassword.setText(null);
                 
             }catch(Exception e){

@@ -78,7 +78,7 @@ public class doclogin extends javax.swing.JFrame {
         backPanel.add(doctorIDLabel);
         doctorIDLabel.setBounds(330, 110, 110, 30);
 
-        doctorId.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        doctorId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         doctorId.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 0), 2, true));
         backPanel.add(doctorId);
         doctorId.setBounds(330, 140, 190, 40);
@@ -88,6 +88,7 @@ public class doclogin extends javax.swing.JFrame {
         backPanel.add(passwoedLabel);
         passwoedLabel.setBounds(330, 210, 140, 30);
 
+        doctorPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         doctorPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 0), 2, true));
         backPanel.add(doctorPassword);
         doctorPassword.setBounds(330, 240, 190, 40);
@@ -96,6 +97,7 @@ public class doclogin extends javax.swing.JFrame {
         doc_login.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         doc_login.setText("Login");
         doc_login.setBorder(null);
+        doc_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         doc_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doc_loginActionPerformed(evt);
@@ -108,7 +110,7 @@ public class doclogin extends javax.swing.JFrame {
         closeBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         closeBtn.setForeground(new java.awt.Color(255, 255, 255));
         closeBtn.setText("X");
-        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 close_button(evt);

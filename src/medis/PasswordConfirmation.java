@@ -38,9 +38,9 @@ public class PasswordConfirmation extends javax.swing.JFrame {
 
         backPanel = new javax.swing.JPanel();
         passwordLabel1 = new javax.swing.JLabel();
-        password1 = new javax.swing.JTextField();
+        password1 = new javax.swing.JPasswordField();
         passwordLabel2 = new javax.swing.JLabel();
-        password2 = new javax.swing.JTextField();
+        password2 = new javax.swing.JPasswordField();
         submitBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         BGLabel = new javax.swing.JLabel();
@@ -86,7 +86,7 @@ public class PasswordConfirmation extends javax.swing.JFrame {
 
         BGLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medis/icons/dialo_background.jpg"))); // NOI18N
         backPanel.add(BGLabel);
-        BGLabel.setBounds(0, 0, 630, 350);
+        BGLabel.setBounds(0, 0, 620, 350);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,9 +107,6 @@ public class PasswordConfirmation extends javax.swing.JFrame {
         // TODO add your handling code here:
         String query="";
         switch (tName) {
-            case "admin":
-                query = "update admin set adminPswd =? where adminID =?";
-                break;
             case "doctor":
                 query = "update doctor set docPswd =? where docID =?";
                 break;
@@ -124,15 +121,29 @@ public class PasswordConfirmation extends javax.swing.JFrame {
         }
         String pswd = password1.getText();
         String pass = password2.getText();
-        if(pswd != null && pass != null && pswd.equals(pass) || !pswd.equals("") || pass != ""){
-            try{
-                con = my_sql_connect.connectdb();
-                pst = con.prepareStatement(query);
-                pst.executeUpdate();
-                con.close();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Exception : "+e);
-            }    
+        if(pswd != null && pass != null && pswd.equals(pass) && !"".equals(pswd) && !"".equals(pass)){
+            if(pass.length() > 7){
+                try{
+                    con = my_sql_connect.connectdb();
+                    pst = con.prepareStatement(query);
+                    pst.setString(1, pass);
+                    pst.setString(2, user);
+                    int rslt = pst.executeUpdate();
+                    if(rslt == 1){
+                        JOptionPane.showMessageDialog(null, " Password Changed.");
+                        this.dispose();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, " Password not changed.");
+                    }
+                    con.close();
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Exception : "+e);
+                }   
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Atleast password contains 8 characters.");
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, "Enter valid password.");
@@ -182,8 +193,8 @@ public class PasswordConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel BGLabel;
     private javax.swing.JPanel backPanel;
     private javax.swing.JButton cancelBtn;
-    private javax.swing.JTextField password1;
-    private javax.swing.JTextField password2;
+    private javax.swing.JPasswordField password1;
+    private javax.swing.JPasswordField password2;
     private javax.swing.JLabel passwordLabel1;
     private javax.swing.JLabel passwordLabel2;
     private javax.swing.JButton submitBtn;

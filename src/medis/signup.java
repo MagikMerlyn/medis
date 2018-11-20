@@ -93,6 +93,7 @@ public class signup extends javax.swing.JFrame {
         backPanel.add(passwordLabel);
         passwordLabel.setBounds(330, 210, 60, 14);
 
+        admin_id1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         admin_id1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 204), 2, true));
         backPanel.add(admin_id1);
         admin_id1.setBounds(330, 130, 230, 40);
@@ -102,6 +103,7 @@ public class signup extends javax.swing.JFrame {
         backPanel.add(idLabel);
         idLabel.setBounds(330, 110, 60, 14);
 
+        admin_pass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         admin_pass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 153), 2, true));
         backPanel.add(admin_pass);
         admin_pass.setBounds(330, 230, 230, 40);
@@ -123,7 +125,7 @@ public class signup extends javax.swing.JFrame {
         close.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         close.setForeground(new java.awt.Color(255, 255, 255));
         close.setText("X");
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        close.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 close_button(evt);

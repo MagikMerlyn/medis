@@ -26,6 +26,7 @@ public class pharmacy_page extends javax.swing.JFrame {
     public pharmacy_page(String userId) {
         initComponents();
         pharmacistID = userId;
+        check();
         patientsDetails();
     }
 
@@ -296,11 +297,11 @@ public class pharmacy_page extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Patient ID", "Name", "Ph no", "Disease", "Medicine", "Doc name", "med issued"
+                "Patient ID", "Name", "PhoneNo", "Disease", "Medicine", "Doc name", "Med Issued"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -483,6 +484,26 @@ public class pharmacy_page extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void check(){
+        try{
+            String password = null;
+            con = my_sql_connect.connectdb();
+            pst = con.prepareStatement("select phrmstPswd from pharmacy where phrmstID=?");
+            pst.setString(1, pharmacistID);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                password = rs.getString("phrmstPswd");
+            }
+            if("password".equals(password)){
+                this.setVisible(false);
+                PasswordConfirmation pswdConfirm = new PasswordConfirmation("doctor",pharmacistID);
+                pswdConfirm.setVisible(true);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error : "+e);
+        }
+    }
+    
     private void patientsDetails(){
         pharmId.setText(pharmacistID);
         DefaultTableModel model= (DefaultTableModel)patiTable.getModel();

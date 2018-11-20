@@ -86,8 +86,7 @@ public class patlogin extends javax.swing.JFrame {
         backPanel.add(patLoginLabel);
         patLoginLabel.setBounds(330, 110, 110, 30);
 
-        patientId.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        patientId.setForeground(new java.awt.Color(153, 51, 255));
+        patientId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         patientId.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 117, 117), 2, true));
         backPanel.add(patientId);
         patientId.setBounds(330, 140, 190, 40);
@@ -97,6 +96,7 @@ public class patlogin extends javax.swing.JFrame {
         backPanel.add(passwordLabel);
         passwordLabel.setBounds(330, 210, 140, 30);
 
+        patientPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         patientPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 117, 117), 2, true));
         backPanel.add(patientPassword);
         patientPassword.setBounds(330, 240, 190, 40);
@@ -118,7 +118,7 @@ public class patlogin extends javax.swing.JFrame {
         closeBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         closeBtn.setForeground(new java.awt.Color(255, 255, 255));
         closeBtn.setText("X");
-        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 close_button(evt);
@@ -174,11 +174,12 @@ public class patlogin extends javax.swing.JFrame {
                         patient_page patient=new patient_page(patient_id);
                         patient.setVisible(true);
                     } 
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"INVALID USERNAME/PASSWORD","Access Denied...",JOptionPane.ERROR_MESSAGE);   
+                    }
                 }                   
-                else
-                {
-                     JOptionPane.showMessageDialog(null,"INVALID USERNAME/PASSWORD","Access Denied...",JOptionPane.ERROR_MESSAGE);   
-                }
+                
                 patientPassword.setText(null);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e);
